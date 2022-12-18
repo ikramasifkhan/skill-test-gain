@@ -25,20 +25,11 @@ class SubscriberRequest extends FormRequest
      */
     public function rules()
     {
-        $firstNameLogic = Rule::with('logic')->where(['logic_field_id'=>LogicField::where('field_name', 'first_name')->first()->id])->first();
-        $firstNameLogicName = $firstNameLogic->logic->logic_name;
-        $firstNameLogicDescription = $firstNameLogic->description;
-
-        $firstNameLogic = Rule::with('logic')->where(['logic_field_id'=>LogicField::where('field_name', 'last_name')->first()->id])->first();
-        $lastNameLogicName = $firstNameLogic->logic->logic_name;
-        $lastNameLogicDescription = $firstNameLogic->description;
         return [
-            'first_name'=>['required',
-                "$firstNameLogicName : $firstNameLogicDescription"
-            ],
-            'last_name'=>['required',
-                "$lastNameLogicName : $lastNameLogicDescription"
-            ],
+            'first_name'=>'required|string',
+            'last_name'=>'required|string',
+            'email'=>'required|email|unique:subscribers,email',
+            'birth_date'=>'required|date',
         ];
     }
 }

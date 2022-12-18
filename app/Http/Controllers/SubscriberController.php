@@ -28,11 +28,6 @@ class SubscriberController extends Controller
      */
     public function create()
     {
-
-        //return $firstNameLogic = Rule::with('logic')->where(['logic_field_id'=>LogicField::where('field_name', 'first_name')->first()->id])->first();
-
-        //$logicFieldId = LogicField::where('field_name', 'first_name')->first()->id;
-        //return Rule::with('logic')->where(['logic_field_id'=>$logicFieldId])->first();
         return view('subscriber.crate');
     }
 
@@ -44,7 +39,9 @@ class SubscriberController extends Controller
      */
     public function store(SubscriberRequest $request)
     {
-        return $request->all();
+        $data = $request->validated();
+        Subscriber::create($data);
+        return redirect()->route('subscriber.index');
     }
 
     /**

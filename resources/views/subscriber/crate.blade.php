@@ -17,7 +17,7 @@
                 @csrf
                 <div class="col-sm-6">
                     <label for="first_name" class="form-label">First name</label>
-                    <input type="text" class="form-control" name="first_name" id="first_name" placeholder="" value="">
+                    <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First Name">
                     @if($errors->has('first_name'))
                         <div class="text-danger">{{ $errors->first('first_name') }}</div>
                     @endif
@@ -25,7 +25,7 @@
 
                 <div class="col-sm-6">
                     <label for="last_name" class="form-label">Last name</label>
-                    <input type="text" class="form-control" name="last_name" id="last_name" placeholder="" value="">
+                    <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last Name">
                     @if($errors->has('last_name'))
                         <div class="text-danger">{{ $errors->first('last_name') }}</div>
                     @endif
@@ -34,17 +34,17 @@
                 <div class="col-sm-6">
                     <label for="email" class="form-label">Email</label>
                     <input type="email" class="form-control" name="email" id="email" placeholder="you@example.com">
-                    <div class="invalid-feedback">
-                        Please enter a valid email address for shipping updates.
-                    </div>
+                    @if($errors->has('email'))
+                        <div class="text-danger">{{ $errors->first('email') }}</div>
+                    @endif
                 </div>
 
                 <div class="col-sm-6">
-                    <label for="address" class="form-label">Birth date</label>
-                    <input type="text" class="form-control" id="address" placeholder="1234 Main St">
-                    <div class="invalid-feedback">
-                        Please enter your shipping address.
-                    </div>
+                    <label for="birth_date" class="form-label">Birth date</label>
+                    <input type="date" name="birth_date" class="form-control" id="birth_date" placeholder="1234 Main St">
+                    @if($errors->has('birth_date'))
+                        <div class="text-danger">{{ $errors->first('birth_date') }}</div>
+                    @endif
                 </div>
 
                 <div class="col-md-2">
