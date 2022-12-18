@@ -35,7 +35,6 @@ class SegmentController extends Controller
     {
         $data['logicFields'] = LogicField::latest()->get();
         $data['logics'] = Logic::latest()->get();
-        $data['groups'] = Group::latest()->get();
         return view('segment.create', $data);
     }
 

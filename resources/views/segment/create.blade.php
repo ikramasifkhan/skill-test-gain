@@ -106,12 +106,8 @@
             </div>
 
             <div class="col-md-3" id="or_condition_${keys}">
-                @foreach($groups as $group)
-                    @if($group->group_name === 'or')
-                        <input type="hidden" name="rules[${keys}][group]" value="or">
-                        <button class="btn btn-success" type="button" onclick="addOrRules(${keys})">+ OR</button>
-                    @endif
-                @endforeach
+                <input type="hidden" name="rules[${keys}][group]" value="or">
+                <button class="btn btn-success" type="button" onclick="addOrRules(${keys})">+ OR</button>
             </div>
 
             <div class="col-12 mt-2" id="and_condition_${keys}">
